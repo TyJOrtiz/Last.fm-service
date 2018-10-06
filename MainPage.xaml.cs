@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,17 +24,19 @@ namespace loginDemo
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Lastfm.Services.Session session;
+        private Lastfm.Services.Session session; //Uses Hqub (https://github.com/avatar29A/Last.fm)
         public MainPage()
         {
             this.InitializeComponent();
         }
-
+        private string ApiKey = ""; //signup for api key at last.fm
+        
+        private string ApiSecret = ""; //signup for api secret at last.fm
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                session = new Lastfm.Services.Session("bdcd4cc2b7b85d703370584f5635e84e", "727d4cc441dfca25f82cac2055916e83");
+                session = new Lastfm.Services.Session(ApiKey, ApiSecret);
                 session.Authenticate(Userbox.Text, Lastfm.Utilities.md5(Passbox.Password));
                 if (SaveLoginCheck.IsChecked == true)
                 {
