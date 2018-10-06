@@ -42,11 +42,8 @@ namespace MyAppService
                 string song = message["Song"] as string;
                 string album = message["Album"] as string;
                 string artist = message["Artist"] as string;
-                //Lastfm.Services.Session session = new Lastfm.Services.Session("bdcd4cc2b7b85d703370584f5635e84e", "727d4cc441dfca25f82cac2055916e83");
-                //session.Authenticate(item.UserName, Lastfm.Utilities.md5(item.Password));
-                //Lastfm.Scrobbling.Connection connection = new Lastfm.Scrobbling.Connection("erhhr", "1.3", item.UserName, session);
-                //connection.Scrobble(new Lastfm.Scrobbling.Entry());
-                KoScrobbler.Scrobbler scrobbler = new KoScrobbler.Scrobbler("bdcd4cc2b7b85d703370584f5635e84e", "727d4cc441dfca25f82cac2055916e83");
+                // KoScrobbler: https://www.nuget.org/packages/KoScrobbler
+                KoScrobbler.Scrobbler scrobbler = new KoScrobbler.Scrobbler(Lastfm apikey, lastfm apisecret);
                 var x = await scrobbler.CreateSessionAsync(item.UserName, item.Password);
                 var key = x.SessionKey;
                 var session1 = await scrobbler.ValidateSessionAsync(item.UserName, key);
