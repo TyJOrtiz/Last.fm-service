@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="loginDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:loginDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Austin Neill  2017-10-05 04-26-28.jpg"/>
+    </Page.Background>
+
+    <Grid>
+        <Grid VerticalAlignment="Center" Padding="20" Background="{ThemeResource SystemControlAcrylicElementBrush}">
+            <StackPanel HorizontalAlignment="Center" Spacing="10">
+                <Image HorizontalAlignment="Center" Source="Assets/Last.fm_Logo_White.png" Height="64"></Image>
+                <TextBox x:Name="Userbox" PlaceholderText="Username" Style="{StaticResource CenteredTextBox}" Width="320"></TextBox>
+                <PasswordBox PlaceholderText="Password" x:Name="Passbox" Style="{StaticResource CenteredPasswordBox}" Width="320"></PasswordBox>
+                <CheckBox x:Name="SaveLoginCheck" Content="Save login info" HorizontalAlignment="Center"></CheckBox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="Button_Click" Style="{ThemeResource AccentButtonStyle}" HorizontalAlignment="Stretch">Login</Button>
+                    <Button Grid.Column="2" HorizontalAlignment="Stretch">Sign Up</Button>
+                </Grid>
+                <HyperlinkButton HorizontalAlignment="Center">Forgot password?</HyperlinkButton>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
